@@ -92,7 +92,7 @@ if(isset($_SESSION['err'])){
 <html>
     <head>
       <title>Login</title>
-      <?php echo $echo_header; ?>
+      <?= $echo_header; ?>
     </head>
     <p class="botto-text" hidden>Designed by Sunil Rajput</p>
     <body id="LoginForm">
@@ -110,9 +110,9 @@ if(isset($_SESSION['err'])){
               <form id="Login" action="./login" method="POST">
                 <div class="form-group">
                   <p class="text-danger">
-                    <?php echo $errFlg <= 3 ? htmlspecialchars($errorMessage, ENT_QUOTES) :''; ?>
+                    <?= $errFlg <= 3 ? htmlspecialchars($errorMessage, ENT_QUOTES) :''; ?>
                   </p>
-                  <input type="text" class="form-control" placeholder="Name" name="userid" value="<?php echo !empty($_POST["userid"]) ? htmlspecialchars($_POST["userid"], ENT_QUOTES):'';?>">
+                  <input type="text" class="form-control" placeholder="Name" name="userid" value="<?= !empty($_POST["userid"]) ? htmlspecialchars($_POST["userid"], ENT_QUOTES):'';?>">
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="passwd">
@@ -136,9 +136,9 @@ if(isset($_SESSION['err'])){
               <form id="Login" action="./signup" method="POST">
                 <div class="form-group">
                   <p class="text-danger">
-                    <?php echo $errFlg > 3 ? htmlspecialchars($errorMessage, ENT_QUOTES) :''; ?>
+                    <?= $errFlg > 3 ? htmlspecialchars($errorMessage, ENT_QUOTES) :''; ?>
                   </p>
-                  <input type="text" class="form-control" placeholder="Name" name="userid" value="<?php echo !empty($_POST["userid"]) ? htmlspecialchars($_POST["userid"], ENT_QUOTES):'';?>">
+                  <input type="text" class="form-control" placeholder="Name" name="userid" value="<?= !empty($_POST["userid"]) ? htmlspecialchars($_POST["userid"], ENT_QUOTES):'';?>">
                 </div>
                 <div class="form-group">
                   <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="passwd">
@@ -155,7 +155,7 @@ if(isset($_SESSION['err'])){
       </div>
       <script>
         <?php $correntForm = empty($correntForm) || $correntForm === 'login' ? 'login' : 'signup';?>
-        let correntForm = '<?php echo $correntForm; $correntForm = '';?>'
+        let correntForm = '<?= $correntForm; $correntForm = '';?>'
       </script>
   </body>
 </html>

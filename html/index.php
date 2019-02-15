@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>web vulnerabilities test</title>
+    <title>Web vulnerabilities test</title>
   </head>
   <body>
     <ul>
@@ -11,7 +11,7 @@
           SQL injection
         </a>
       <li>
-        <a href="./xss/xss">
+        <a href="./xss">
           XSS
         </a>
     </ul>

@@ -1,7 +1,7 @@
 <?php
   require('./function.php');
 
-  //擬似DB
+  //検索キーワード
   $search_arry = [
     "test1","test2","test3","test4"
   ];
@@ -55,8 +55,8 @@
 <!DOCTYPE html>
   <html>
   <head>
-  <title><?php echo $HOST ;?></title>
-  <?php echo $echo_header; ?>
+  <title><?=$HOST;?></title>
+  <?=$echo_header;?>
   <style>
     form{
       margin: 10vw 0 10vw 0;
@@ -72,24 +72,23 @@
   <body>
     <a href="/">←TOPへ戻る</a>
     <div id="container">
-      <a href="./xss">
+      <a href="<?=$FileName;?>">
         <button class="btn m-2">Reload</button>
       </a>
       <h1>XSS</h1>
       <p class="alert-info">Usage: input "test" in each form and click -search-.
-      <form id="form1" action="<?php echo $FileName;?>" method="post">
+      <form id="form1" action="<?=$FileName;?>" method="post">
         <label>The first:</label>
         <?php
         //対策
-        //<input type="text" name="keyword" placeholder="search" value=<?php echo htmlspecialchars($xss1,ENT_QUOTES);
+        //<input type="text" name="keyword" placeholder="search" value=<?=htmlspecialchars($xss1,ENT_QUOTES);
         ?>
-        <input type="text" name="keyword" placeholder="search" value=<?php echo $xss1;?>>
+        <input type="text" name="keyword" placeholder="search" value=<?=$xss1;?>>
         <input type="hidden" name="mode" value="xss1">
         <input type="submit" id="btn" value="-search-">
       </form>
 
       <?php 
-
         if($_POST['mode'] === 'xss1'){
           echo '<p>' . htmlspecialchars($xss1) . 'の検索結果</p>';
           echo writeResult($result_matches);
@@ -116,7 +115,7 @@
           let queryStrings = `?mode=xss2&keyword=${keyword.value}`;
 
           let xhr = new XMLHttpRequest();
-          xhr.open('GET','<?php echo $FileName;?>' + queryStrings);
+          xhr.open('GET','<?=$FileName;?>' + queryStrings);
 
           //POSTでJSONを送る場合
           //let body = `{"mode":"xss2","keyword":"${keyword.value}"}`;
@@ -139,12 +138,11 @@
       <hr>
 
 
-
       <h1>DOM-Based-XSS</h1>
 
-      <form id="form8" action="<?php echo $FileName;?>#form8" method="get">
+      <form id="form8" action="<?=$FileName;?>#form8" method="get">
         <label>The first:</label>
-        <input type="text" name="keyword" id="dom_target" placeholder="search" value="<?php echo htmlspecialchars($dom2);?>">
+        <input type="text" name="keyword" id="dom_target" placeholder="search" value="<?=htmlspecialchars($dom2);?>">
         <input type="hidden" name="mode" value="dom2">
         <input type="submit" id="btn8" value="-search-">
       </form>

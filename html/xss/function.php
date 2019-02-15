@@ -1,11 +1,11 @@
 <?php
+ini_set('display_errors', 0);
 $HOST = $_SERVER['HTTP_HOST'];
   $ua = $_SERVER['HTTP_USER_AGENT'];
 date_default_timezone_set('Asia/Tokyo');//timezone
-preg_match('/(?<=(?!.*\/)).+\.php/', $_SERVER['SCRIPT_NAME'], $FileName);
-$FileName = './' .$FileName[0];
+//preg_match('/(?<=(?!.*\/)).+\.php/', $_SERVER['SCRIPT_NAME'], $FileName);
+$FileName = './xss';
 session_start();
-ini_set('display_errors', 0);
 
 //function modules. [ec - hacker site]
 function HasPostParams(){
@@ -116,7 +116,7 @@ $echo_header = <<< EOF
 <link rel="stylesheet" href="../css/style.css">
 <link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <meta charset="UTF-8">
-<script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript" src="./xss/js/main.js"></script>
 EOF;
 
 ?>

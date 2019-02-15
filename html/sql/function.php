@@ -1,11 +1,12 @@
 <?php
+ini_set('display_errors', 1);
 $db['dsn']      = 'mysql:host=' . gethostbyname('mysql-server');
 $db['user']     = 'root';
 $db['password'] = 'pass';
 $db['dbname']   = 'dev';
 $db['tblname']  = 'user_tbl';
 
-if(empty($_COOKIE['SID'])){
+if(empty($_COOKIE['_session'])){
   header('Location: login');
 }
 
