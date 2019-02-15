@@ -16,7 +16,7 @@ RUN echo '#!/bin/sh ' > init.sh && \
     echo 'nginx -g "daemon off;"' >> init.sh && \
     chmod 755 init.sh
 
-RUN apk add vim curl
+#RUN apk add vim curl
 EXPOSE 80 9000
 
 STOPSIGNAL SIGTERM
