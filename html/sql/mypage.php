@@ -20,7 +20,9 @@ if(isset($_COOKIE['_session']) && isset($_SESSION["NAME"])){
 <html>
   <head>
     <title>マイページ</title>
-    <?php echo $echo_header; ?>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <meta charset="UTF-8">
   </head>
   <body>
   <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
